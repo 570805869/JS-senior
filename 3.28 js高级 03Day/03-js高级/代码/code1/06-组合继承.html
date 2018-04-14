@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 组合继承： 原型继承 + 借用构造函数
+    // 父类型
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    Person.prototype.sayHi = function () {
+      console.log('大家好，我是' + this.name);
+    };
+
+    // 子类型
+    function Student(name, age, sex, score) {
+      // 借用构造函数 - 继承属性
+      // 把Person当成普通函数调用，
+      // 如果Person当成普通函数调用的话，它内部的this指向window
+      // 通过call改变Person内部的this的指向，指向学生对象
+      Person.call(this, name, age, sex);
+
+      this.score = score;
+    }
+    // 设置原型  为 父类型的原型
+    Student.prototype = Person.prototype;
+    Student.prototype.constructor = Student;
+
+    // 1. 给学生增加一个特有的方法 exam
+    Student.prototype.exam = function () {
+      console.log('exam');
+    };
+
+    var s = new Student('zs', 18, '男', 10);
+    console.dir(s);
+
+    // 2. 自己创建Teacher类型  -- 继承Person
+    function Teacher(name, age, sex, salary) {
+      Person.call(this, name, age, sex);
+      //
+      this.salary = salary;
+    }
+    Teacher.prototype = Person.prototype;
+    Teacher.prototype.constructor = Teacher;
+    // 3. 创建Teacher对象，检查是否有exam方法
+    var t = new Teacher('ls', 29, '男', 100000);
+    console.dir(t);
+  </script>
+</body>
+</html>

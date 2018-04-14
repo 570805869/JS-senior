@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 对象拷贝
+    function extend(parent, child) {
+      for (var key in parent) {
+        // 判断child中是否有 parent中对应的属性，如果有不拷贝
+        if (child[key]) {
+          continue;
+        }
+        child[key] = parent[key];
+      }
+    }
+
+    // 组合继承： 原型继承 + 借用构造函数
+    // 父类型
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    Person.prototype.sayHi = function () {
+      console.log('大家好，我是' + this.name);
+    };
+
+    // 子类型
+    function Student(name, age, sex, score) {
+      // 借用构造函数 - 继承属性
+      Person.call(this, name, age, sex);
+
+      this.score = score;
+    }
+    // 通过对象拷贝，把Person构造函数的原型对象的成员拷贝给Student构造函数的原型对象
+    extend(Person.prototype, Student.prototype);
+
+    // 1. 给学生增加一个特有的方法 exam
+    Student.prototype.exam = function () {
+      console.log('exam');
+    };
+
+    var s = new Student('zs', 18, '男', 10);
+    console.dir(s);
+
+
+    // 创建Teacher构造函数
+    function Teacher(name, age, sex, salary) {
+      // 借用构造函数，继承属性
+      Person.call(this, name, age, sex);
+      this.salary = salary;
+    }
+    // 对象的拷贝 -- 实现继承方法
+    extend(Person.prototype, Teacher.prototype);
+
+    var t = new Teacher('ls', 18, '男', 10);
+    console.dir(t);
+
+
+  </script>
+</body>
+</html>

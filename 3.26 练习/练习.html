@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+//    function Person(name,age){
+//        this.name = name;
+//        this.age = age;
+//    }
+//    Person.prototype.sayHi = function(){
+//        console.log('你好')
+//    }
+//
+//    var stu1 = new Person('zs',19);
+//    stu1.sayHi();
+
+    //面向过程
+//    var stu1 = {name:'xd',age:22};
+//    function sayAge(obj){
+//        console.log('我' + obj.name + '今年' + obj.age + '岁')
+//    }
+//    sayAge(stu1);
+
+    //面向对象
+    function SayAge(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    SayAge.prototype.sayHi = function(){
+        console.log(this.name + '我今年' + this.age + "岁了！");
+    }
+    var stu2 = new  SayAge('xd',22);
+    console.log(stu2);
+    stu2.sayHi();
+
+
+
+
+</script>
+
+</body>
+</html>

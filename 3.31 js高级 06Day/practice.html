@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+QQ号：<input type="text" id="txtQQ"><span></span><br>
+邮箱：<input type="text" id="txtEMail"><span></span><br>
+手机：<input type="text" id="txtPhone"><span></span><br>
+生日：<input type="text" id="txtBirthday" placeholder="正确格式xxxx-xx-xx"><span></span><br>
+姓名：<input type="text" id="txtName"><span></span><br>
+
+<script>
+
+    //    1.创建正则表达式 -- 构造函数
+    //    2.第一个参数： 正则表达式
+    //    3.第二个参数 g  i  gi         （global   ignore globalignore）
+    //    4.在js里\  是转义的意思  \\ 连个反斜杠是转义后面的反斜杠
+    //    var regularExpression = new RegExp('\\d', 'g');   //  \\d  是\d的正确表达方式
+    //
+    //    var str = 'abc12d';
+    //    console.log(regularExpression.test(str));
+
+
+    //    创建正则表达式 -- 字面量
+    //    var regularExpression = /\d/g;         //两个斜线之间放正则表达式
+    //    var str = '123af';
+    //    console.log(regularExpression.test(str));    // .test()  这是正则表达式提供的方法
+
+    //    570805869@qq.com
+    //    var str = /\d+@\w+.\w+/g;
+    //    var eg = '570805869@qq.com';
+    //    console.log(str.test(eg));
+
+    //    var txtQQ =  document.getElementById('txtQQ');
+    //    txtQQ.onblur = function () {
+    //        var span = this.nextSibling;
+    //        var reg = /^\d{5,12}$/g;
+    //        if(!reg.test(this.value)){
+    //            span.innerHTML = '请输入正确的qq号';
+    //            span.style.color = 'blue';
+    //        }else{
+    //            span.innerHTML = '';
+    //            span.innerHTML = '';
+    //        }
+    //    };
+    //
+    //    var txtEMail = document.getElementById('txtEMail');
+    //    txtEMail.onblur = function (){
+    //        var span = this.nextSibling;
+    //        var reg =  /^\d+@\w+\.\w+$/g;
+    //        if(!reg.test(this.value)){
+    //            span.innerHTML = '输入正确的邮箱';
+    //            span.style.color = 'red';
+    //        }else{
+    //            span.innerHTML = '';
+    //            span.style.color = '';
+    //        }
+    //    };
+    //
+    //    var txtPhone = document.getElementById('txtPhone');
+    //    txtPhone.onblur = function () {
+    //        var span = this.nextElementSibling;
+    //        var reg = /^\d{11}$/g;
+    //        if(!reg.test(this.value)){
+    //            span.innerHTML = '请输入正确的手机号';
+    //            span.style.color = 'green';
+    //        }else{
+    //            span.innerHTML = '';
+    //            span.style.color = '';
+    //        }
+    //    };
+    //
+    //    var txtBirthday = document.getElementById('txtBirthday');
+    //    txtBirthday.onblur = function (){
+    //        var span = this.nextElementSibling;
+    //        var reg = /^\d{4}(-\d{2}){2}$/g;
+    //        if(!reg.test(this.value)){
+    //            span.innerHTML = '请输入正确的出生日期xxxx-xx-xx';
+    //            span.style.color = 'purple'
+    //        }else{
+    //            span.innerHTML = '';
+    //            span.style.color = '';
+    //        }
+    //    };
+    //
+    //    var txtName = document.getElementById('txtName');
+    //    txtName.onblur = function(){
+    //        var span = this.nextElementSibling;
+    //        var reg = /^[\u4e00-\u9fa5]{2,4}$/g;
+    //        if(!reg.test(this.value)){
+    //            span.innerHTML = '请输入正确的姓名'
+    //            span.style.color = 'lightblue'
+    //        }else{
+    //            span.innerHTML = '';
+    //            span.style.color = '';
+    //        }
+    //    }
+
+    //    function addFormCheck(elementID, reg, tip) {
+    //        var txt = document.getElementById(elementID);
+    //        txt.onblur = function () {
+    //            var span = this.nextElementSibling;
+    //            if (!reg.test(this.value)) {
+    //                span.innerHTML = tip;
+    //                span.style.color = 'red';
+    //            } else {
+    //                span.innerHTML = ''
+    //            }
+    //        }
+    //    }
+    //    ;
+    //    addFormCheck('txtName', /^[\u4e00-\u9fa5]{2,4}$/, '请输入正确的姓名');
+    //    addFormCheck('txtQQ', /^\d{5,12}$/, '请输入正确QQ号码');
+    //    addFormCheck('txtEMail', /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/, '请输入正确邮箱格式');
+    //    addFormCheck('txtPhone', /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/, '请输入正确的手机号码');
+    //    addFormCheck('txtBirthday', /^\d{4}-\d{1,2}-\d{1,2}$/, '请输入正确的日期格式');
+
+    //    match方法
+    //    var str = '张三：1000, 李四：5000, 王五：8000';
+    //    console.log(str.match(/\d+/g));
+    //    console.log(str.match(/[\u4e00-\u9fa5]{2}/g));
+
+    //    split方法
+    //    var str = '570805869@qq.com';
+    //    var arr = str.split(/@|\./);
+    //    console.log(arr);
+
+//    分组提取
+
+    var str = '570805869@qq.com';
+    var reg = /(\w+)@(\w+)(\.\w+){1,2}/g;
+    reg.test(str);
+    console.log(RegExp.$1);
+    console.log(RegExp.$2);
+    console.log(RegExp.$3);
+
+</script>
+
+</body>
+</html>

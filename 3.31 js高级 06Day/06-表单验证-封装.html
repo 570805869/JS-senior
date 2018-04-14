@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .tip {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form action="" method="POST">
+    姓名：<input type="text" id="txtName"><span class="tip"></span><br>
+    QQ号：<input type="text" id="txtQQ"><span class="tip"></span><br>
+    邮箱：<input type="text" id="txtMail"><span class="tip"></span><br>
+    手机：<input type="text" id="txtPhone"><span class="tip"></span><br>
+    生日：<input type="text" id="txtBirthday"><span class="tip"></span><br>
+  </form>
+
+  <script>
+    // 验证表单元素
+    function addFormCheck(elementId, regExp, tip) {
+      var txt = document.getElementById(elementId);
+      txt.onblur = function () {
+        // 获取span
+        var span = this.nextElementSibling;
+        // 匹配用户的输入
+        if (regExp.test(this.value)) {
+          span.innerHTML = '';
+        } else {
+          span.innerHTML = tip;
+        }
+      };
+    }
+    
+    addFormCheck('txtName', /^[\u4e00-\u9fa5]{2,4}$/, '请输入正确的姓名');
+    addFormCheck('txtQQ', /^\d{5,12}$/, '请输入正确QQ号码');
+    addFormCheck('txtMail', /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/, '请输入正确邮箱格式');
+    addFormCheck('txtPhone', /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/, '请输入正确的手机号码');
+    addFormCheck('txtBirthday', /^\d{4}-\d{1,2}-\d{1,2}$/, '请输入正确的日期格式');
+    
+
+
+
+
+
+
+    // 1 获取文本框 注册事件onblur
+    // var txtName = document.getElementById('txtName');
+    // txtName.onblur = function () {
+    //   // 获取当前文本框的下一个兄弟元素 -- span
+    //   var span = this.nextElementSibling;
+
+    //   // 2 创建正则对象，匹配用户输入的内容
+    //   var reg = /^[\u4e00-\u9fa5]{2,4}$/;
+    //   if (reg.test(this.value)) {
+    //     // 4 验证成功 设置span内容为空
+    //     span.innerHTML = '';
+    //   } else {
+    //     // 3 验证失败 设置span的内容为提示
+    //     span.innerHTML = '请输入正确的姓名';
+    //   }
+    // };
+
+  </script>
+</body>
+</html>

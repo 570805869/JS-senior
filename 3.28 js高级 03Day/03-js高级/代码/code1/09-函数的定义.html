@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 函数声明
+    // function fn() {
+    // }
+    // // 2. 函数表达式
+    // var fn = function () {
+    // };
+
+    // 函数声明 会进行提升
+    // 函数表达式不会提升
+
+    // 在条件语句中声明的函数
+    // 在条件语句中声明的函数，在不同的浏览器中执行的结果可能是不一样的
+    // 在新版本IE 11 chrome中 条件语句中声明的函数 不会提升
+    // 在IE10 以下 条件语句中声明的函数 会提升
+    
+    // if (true) {
+    //   function fn() {
+    //     console.log('fn - true');
+    //   }
+    // } else {
+    //   function fn() {
+    //     console.log('fn - false');
+    //   }
+    // }
+  
+
+    // 解决方法  函数表达式
+    var fn = null;
+    if (true) {
+      fn = function () {
+        console.log('fn - true');
+      };
+    } else {
+      fn = function () {
+        console.log('fn - false');
+      };
+    }
+    fn();
+  </script>
+</body>
+</html>

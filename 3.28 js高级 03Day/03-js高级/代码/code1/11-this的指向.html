@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 函数调用  -- 内部this指向window
+    // function fn() {
+    //   console.log(this);
+    // }
+    // fn();
+
+    // 2. 构造函数 -- 内部的this指向的是通过构造函数创建的对象
+    // function Person(name) {
+    //   this.name = name;
+    //   console.log(this);
+    // }
+    // var p = new Person('zs');
+
+    // 3. 方法调用 -- this指向调用方法的对象
+    // var obj = {
+    //   name: 'zs',
+    //   sayHi: function () {
+    //     console.log(this);
+    //   }
+    // }
+
+    // obj.sayHi();
+
+    // 4. 事件处理函数中的this  指向的是触发事件的对象（事件源）
+
+    // 5. 定时器的function中的this 指向window
+
+
+
+    // 注意：普通函数调用  特殊情况，严格模式下 this指向是undefined
+    'use strict';
+    // 严格模式 
+    // 在严格模式下变量必须先声明再使用
+    // a = 5; 
+    // console.log(a);
+    function fn() {
+      console.log(this.name);
+    }
+    fn();
+  </script>
+</body>
+</html>

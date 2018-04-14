@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function Student() {
+    //   this.name = 'zs';
+    //   this.age = 18;
+    //   this.sex = '男';
+
+    //   this.score = 10;
+    // }
+    // Student.prototype.sayHi = function () {
+    // }
+
+    // function Teacher() {
+    //   this.name = 'zs';
+    //   this.age = 18;
+    //   this.sex = '男';
+
+    //   this.salary = 10;
+    // }
+    // Teacher.prototype.sayHi = function () {
+      
+    // }
+
+    // 父类型
+    function Person() {
+      this.name = 'zs';
+      this.age = 18;
+      this.sex = '男';
+    }
+    Person.prototype.sayHi = function () {
+      console.log('大家好，我是' + this.name);
+    };
+
+    // 子类型 - Student
+    function Student() {
+      // 
+
+      this.score = 100;
+    }
+    // 通过原型让Student类型，继承Person类型中的成员
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+
+    var s = new Student();
+    console.dir(s);
+    console.log(s.name);
+    console.log(s.constructor);
+  </script>
+</body>
+</html>

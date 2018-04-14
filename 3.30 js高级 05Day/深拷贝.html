@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 深拷贝，如果对象的成员是复杂类型，会把复杂类型的对象也拷贝一份
+
+    function deepCopy(parent, child) {
+      for (var key in parent) {
+        // 判断child中是否有对应的属性
+        if (child[key]) {
+          continue;
+        }
+        // 判断parent[key] 对象的类型 是数组还是对象
+        // instanceof
+        // 先判断数组 ，因为数组也是对象
+        if (parent[key] instanceof Array) {
+          child[key] = [];
+          // 把parent[key] 数组 中所有的成员拷贝给child[key]
+          deepCopy(parent[key], child[key]);
+        } else if (parent[key] instanceof Object) {
+          child[key] = {};
+          // 把parent[key] 对象 中所有的成员拷贝给child[key]
+          deepCopy(parent[key], child[key]);
+        } else {
+          child[key] = parent[key];
+        }
+      }
+    }
+
+    var wjl = {
+      name: '王健林',
+      money: 100000,
+      cars: ['五菱宏光', '玛莎拉蒂'],
+      dog: {
+        name: 'BYD',
+        age: 2
+      }
+    }
+
+    var wsc = {
+      name: '王思聪'
+    }
+
+    deepCopy(wjl, wsc);
+    
+    wsc.dog.name = 'xxx';
+
+    console.log(wsc);
+    console.log(wjl);
+  </script>
+</body>
+</html>

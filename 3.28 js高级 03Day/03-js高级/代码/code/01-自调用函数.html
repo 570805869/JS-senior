@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function fn() {
+
+    // }
+
+    // fn();
+    // 在js文件中书写代码，是在全局作用域
+
+
+    // 1. 自调用函数的语法
+    (function () {
+      
+    })();
+
+
+    // 2. 演示自调用函数的作用
+    // 我们想让每一个js文件有单独的作用域， 自调用函数
+    // 防止变量命名冲突
+    // (function () {
+    //   function Food() {
+
+    //   }
+    //   // 通过window把Food构造函数，暴露给全局
+    //   window.Food = Food;
+    //   console.log('我是自调用函数');
+    // })();
+
+
+    // var food = new Food();
+    // console.log(food);
+
+
+
+    // 3 给自调用函数传递window
+    (function (window) {
+      function Food() {
+      }
+      // 通过window把Food构造函数，暴露给全局
+      window.Food = Food;
+      console.log('我是自调用函数');
+    })(window);
+
+  </script>
+</body>
+</html>

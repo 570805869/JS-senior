@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 错误1 ，自调用函数最后不加分号
+    // (function () {
+    //   console.log('1');
+    // })()
+
+    // (function () {
+    //   console.log('2');
+    // })()
+
+
+    // 错误2 
+    var fn = function () {
+      console.log('fn');
+    }
+
+    (function () {
+      console.log(1);
+    })();
+  </script>
+</body>
+</html>

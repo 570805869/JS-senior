@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+//    function fn(a,b) {
+//        console.log(a + b);
+//    }
+//    // call可以调用函数
+//    fn.call(null,1,2);      // 导引出来为3
+
+//借用push和splice
+//    var fakeArray = {
+//        0: 'a',
+//        1: 'b',
+//        2: 'c',
+//        3: 'd',
+//        length: 4
+//    };
+//
+//    Array.prototype.push.call(fakeArray, 'e');
+//    console.dir(fakeArray);
+//    Array.prototype.splice.call(fakeArray, 0, 3);
+//    console.dir(fakeArray);
+
+    var arr = [3,1,6];
+//    console.log(arr.toString());
+//    function Person(){
+//
+//    };
+//    var p = new Person();
+//    console.log(p.toString());
+
+    console.log(Object.prototype.toString.call(arr));
+
+
+
+</script>
+</body>
+</html>

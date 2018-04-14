@@ -1,0 +1,18 @@
+#map {
+  /* 设置布局的样式 */
+  position: relative;
+  margin: 10px auto;
+  /* 跟盒子相关的样式 */
+  width: 800px;
+  height: 600px;
+  border: 1px solid red;
+  /* 其它样式 */
+  background-color: lightgray;
+}
+
+.box {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function fn(a, b) {
+    //   console.log(this);
+    //   console.log(a + b);
+    // }
+
+    // var obj = {
+    //   name: 'zs'
+    // }
+
+    // fn.call(obj, 1, 2);
+
+    // 如果call的第一个参数是null或者undefined，此时fn内部的this指向window
+    // fn.call(null, 1, 2);
+    
+
+    // 借用其他对象的方法
+    // var fakeArray = {
+    //   0: 'a',
+    //   1: 'b',
+    //   2: 'c',
+    //   3: 'd',
+    //   length: 4
+    // };
+
+    // Array.prototype.push.call(fakeArray, 'e');
+    // // splice
+    // Array.prototype.splice.call(fakeArray, 0, 3);
+
+    // console.dir(fakeArray);
+
+
+    var arr = [3, 1, 6];
+    // 数组的toString是调用的数组本身的toString方法
+    // console.log(arr.toString());
+    console.log(Object.prototype.toString.call(arr));
+
+
+    // function Person() {
+    // }
+    // Person.prototype.toString = function () {
+    //   return '[object Person]';
+    // };
+    // var p = new Person();
+    // console.log(p.toString());
+  </script>
+</body>
+</html>

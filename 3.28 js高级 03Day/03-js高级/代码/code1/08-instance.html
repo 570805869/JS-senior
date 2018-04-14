@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name, age, sex) {
+      this.name = name;
+      this.age = age;
+      this.sex = sex;
+    }
+    Person.prototype.sayHi = function () {
+      console.log('大家好，我是' + this.name);
+    };
+
+    var p = new Person('zs', 18, '男');
+
+    console.log(p instanceof Person);
+    console.log(p instanceof Array);
+    console.log(p instanceof Object);
+    
+    
+  </script>
+</body>
+</html>

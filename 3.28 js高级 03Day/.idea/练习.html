@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+//    王思聪  子承父业
+//    对象的继承
+//    var wsc = {
+//        name: '王思聪'
+//    };
+//    var wjl = {
+//        name: '王健林',
+//        money: 10000000000000000000,
+//        hourses: ['别墅', '大别墅'],
+//        cars: ['宝马', '玛莎拉蒂']
+//    }
+//        // 对象的继承，把一个对象的船靠背个另一个成员   对象的拷贝
+//        for (var key in wjl) {
+//            if (!wsc[key]){
+//                // 如果这个对象没有key这个属性，继承wjl属性
+//                wsc[key] = wjl[key];
+//            }
+//        }
+//        console.log(wsc)
+//
+//        封装版： 被一个对象的额成员拷贝给另一个对象
+//        这个是 对象与 对象之间的关系
+//    function copy(parent, child) {
+//        for (var key in parent) {
+//            if (!child[key]) {
+//                child[key] = parent[key];
+//            }
+//        }
+//    }
+//    copy(wjl, wsc);
+//    console.log(wsc);
+
+
+    //  继承
+    // 父类型
+    function Person() {
+        this.name = 'zs';
+        this.age = 18;
+        this.sex = '男';
+    }
+    Person.prototype.sayHi = function(){
+        console.log('hello,我是' + this.name);
+    }
+    // 子类型
+    function Student(){
+        this.score = 100;
+    }
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+
+    var s1 = new Student();
+    console.log(s1);
+
+
+
+</script>
+
+</body>
+</html>

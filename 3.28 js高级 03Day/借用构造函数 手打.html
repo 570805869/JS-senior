@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+//    function Animal(type, age, color){             //构造函数里面一般有this，所以要设置形参
+//        this.type = type;
+//        this.age = age;
+//        this. color = color
+//    }
+//    Animal.prototype.sayHi = function() {
+//        console.log('我是'+ this.type);
+//    };
+////    继承，想拷贝给子对象
+//
+//
+//    function copy(parent, child){
+//        for(var key in parent){
+//            if(!child[key]){
+//                child[key] = parent[key];
+//            }
+//        }
+//    };
+////    开始创建子类型
+//
+//
+////    首先是老虎类型
+//    function Tiger(type, age, color, weight){
+//        Animal.call(this, type, age, color);
+//        this.weight = weight;
+//    };
+//    //把Animal里面的方法拷贝给 Tiger
+//    copy(Animal.prototype, Tiger.prototype);
+//    // 后期想给tiger增加方法（行为）
+//    Tiger.prototype.beat = function(){
+//        return '我要吃肉'
+//    };
+//
+//    var tig = new Tiger('tiger', 3, 'yellow', 130);
+//    console.dir(tig);
+//    tig.sayHi();              //  如果输入  console.log(tig.sayHi());本身他在方法里就已经打印了一遍,如果想用这种方式
+//                              //输出的话，得把前面的函数改成  return 字符串的形式，才可以，两种方式都已列出，谨记
+//    console.log(tig.beat());
+//
+//    //创建老鼠
+//
+//    function Mouse(type, age, color, sleep){
+//        //  继承属性
+//        Animal.call(this, type, age, color);
+//        this.sleep = sleep;
+//    }
+//    // 继承方法
+//    copy(Animal.prototype, Mouse.prototype);
+//    // 新增方法
+//    Mouse.prototype.swim = function(){
+//        return '我是' + this.color + '的，我游得特别的快'
+//    };
+//
+//    var mou = new Mouse('mouse', 3, 'gray', '噜噜噜');
+//    console.dir(mou);
+//    console.log(mou.swim());
+//    console.log(mou.sleep)
+
+    function Animal(name, color){
+        this.name = name;
+        this.color = color;
+    }
+    Animal.prototype.sayHello = function () {
+            console.log('我是' + this.name + '，我是' + this.color + '色的')
+    };
+    function copy(parent, child){
+        for(var key in parent){
+            if(!child[key]){
+                child[key] = parent[key]
+            }
+        }
+    };
+//    开始创建子类型
+    function tiger(pare){
+
+    }
+
+
+
+
+
+</script>
+
+</body>
+</html>

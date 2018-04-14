@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="heroes">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <span></span>
+</div>
+
+
+<script>
+//        var arr = ['sd', 'asd', 'fdg', 'gfdgdfh'];
+//        arr.sort(function(a, b){
+//            return a.length - b.length;              // b.length -a.length  从大到小   a.length - b .length 从小到大
+//        });
+//        console.log(arr);
+
+        // 按ASCICAL 码排列
+//        Array.prototype.mySort = function(callback){
+//            for(var i = 0; i < this.length; i++){
+//                for (var j = 0; j < this.length - 1 - i; j++) {
+//                    if(callback(this[j], this[j + 1 ]) > 0){
+//                        var tmp = this[j];
+//                        this[j] = this[j + 1];
+//                        this[j + 1] = tmp;
+//                    }
+//                }
+//            }
+//        };
+//
+//        var arr = ['fasdf', 'fdsaff', 'ret'];
+//        arr.mySort(function(a,b){
+//        return a.length - b.length
+//    });
+//        console.log(arr);
+
+    //    闭包
+//        function fn() {
+//            var num = 10;
+//            return{
+//                getNum: function (){
+//                return num;
+//            },
+//            setNum: function( n ){
+//                num = n;
+//            }
+//            }
+//        }
+//        var obj = fn();
+//        obj.setNum(50);
+//        console.log(obj.getNum())
+
+    // 生成随机数,每次调用函数(同时的)，都返回第一次生成的随机数
+    //    function getRandon() {
+    //        var num = parseInt(Math.random() * 10) + 1;
+    //        return function()
+    //        {
+    //            return num;
+    //        }
+    //    }
+    //    var fn = getRandon();
+    //    console.log(fn());
+    //    console.log(fn());
+    //    console.log(fn());
+    //    console.log(fn());
+    //    console.log(fn());
+    //    console.log(fn());            // 同时调用，同时变化
+
+
+//     1 + m   100 + m    1000 + m    前面的数是固定的，后面的是变量
+//        function genFn(n ) {
+//            return function ( m ) {
+//                return n + m;             //   把n留住了，没有让它释放
+//            }
+//        }
+//
+//        var sum1 = genFn(1);  //function (m) {return 1 + m};
+//        var sum100 = genFn(100);   //function (m) {return 100 + m}
+//        var sum1000 = genFn(1000);
+//
+//        console.log(sum1( 5 ));
+//        console.log(sum100( 5 ));
+//        console.log(sum1000(5));
+
+    // 点击某一项，输出对应的索引
+//        var heroes = document.getElementById('heroes');
+//        var list = heroes.children;             // 获取所有子元素    children 是子节点
+//        for(var i = 0; i < list.length; i++){
+//            var li = list[i];
+//            li.index = i;
+//            li.onclick = function(){
+//                console.log(this.index);
+//            }
+//        }
+
+    ////    闭包 经典案例
+//        var heroes = document.getElementById('heroes');
+//        var list = heroes.children;             // 获取所有子元素    children 是子节点
+//        for(var i = 0; i < list.length; i++){
+//            var li = list[i];
+//    //        自调用函数
+//            (function(index){
+//                li.onclick = function(){
+//                    console.log(index);
+//                }
+//            })(i);
+//        };
+
+
+
+
+
+    //    var heroes = document.getElementById('heroes');
+    //    var lists = heroes.children;
+    //    for(var j = 0; j < lists.length; j++){
+    //        var li = lists[i];
+    //        ()(i);
+    //    }
+
+    //    递归
+
+    //      累加
+    //    function fn(n){
+    //        if(n === 1){
+    //            return 1;
+    //        }
+    //        return fn( n -1 ) + n;
+    //    }
+    //    console.log(fn(4));
+
+    //    连乘
+    //    function fn(n){
+    //        if( n === 1){
+    //            return 1;
+    //        }
+    //        return fn(n - 1) * n;
+    //    }
+    //
+    //    console.log(fn(5))
+
+//        深拷贝
+
+//        var wjl = {
+//            name: '王健林',
+//            money: 100000,
+//            cars: ['五菱宏光', '玛莎拉蒂'],
+//            dog: {
+//                name: 'BYD',
+//                age: 2
+//            }
+//        };
+//
+//        var wsc = {
+//            name: '王思聪'
+//        };
+//        function deepCopy(parent, children) {
+//            for (var key in parent) {
+//                if (children[key]) {
+//                    continue;
+//                }
+//
+//                if (parent[key] instanceof Array) {
+//                    children[key] = [];
+//                    deepCopy(parent[key], children[key]);
+//                } else if (parent[key] instanceof Object) {
+//                    children[key] = {};
+//                    deepCopy(parent[key], children[key]);
+//                } else {
+//                    children[key] = parent[key];
+//                }
+//            }
+//        }
+//        deepCopy(wjl, wsc);
+//        wsc.dog.name = 'www';
+//        console.log(wsc);
+//        console.log(wjl);
+
+//
+//    function loadTree(element) {
+//        var children = element.children;
+//        for (var i = 0; i < children.length; i++) {
+//            console.log(children[i]);
+//        }
+//    }
+//    loadTree(document.body)
+
+    function loadTrea(element){
+        var children = element.children;
+        for(var i =0; i < children.length; i++){
+            console.log(children[i]);
+        }
+    }
+    loadTrea(document.body)
+
+//    document.documentElement  根元素
+
+</script>
+</body>
+</html>

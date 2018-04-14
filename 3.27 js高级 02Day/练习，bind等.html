@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //    (function(){                               //匿名函数  function   Person()    这里不用写名字，就是不用谢Person
+    //        function Food() {
+    //            console.log('1111')
+    //        };
+    //        window.Food = Food;     //通过window把Food构造函数，暴露给了全局
+    //        console.log('我是自调用函数')
+    //    })();
+    //
+    //    var food = new Food();
+    //    console.log(food);
+    //
+    //
+    //    (function(){
+    //        function Drink(){
+    //            console.log('好好学习，')
+    //        }
+    //        window.Drink = Drink;
+    //        console.log('我是自调用函数里的');
+    //    })();
+    //
+    //    var coco = new Drink();
+    //    console.log(coco);
+
+
+    // bind 的使用
+    var obj = {
+        name:'zs',
+        age: 12
+    };
+
+    setInterval(function () {
+        console.log(this)
+    }.bind(obj),500);
+
+    // 类似
+    var fn = function(){
+        console.log(123)
+    };
+
+    var fn1 = fn.bind(obj);
+    fn1();
+
+
+
+</script>
+</body>
+</html>

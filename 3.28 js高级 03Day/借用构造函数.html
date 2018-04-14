@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    // 父类型
+//    function Person(name, age, sex) {
+//        this.name = name;
+//        this.age = age;
+//        this.sex = sex;
+//    }
+//    Person.prototype.sayHi = function(){
+//        console.log('hello,我是' + this.name);
+//    }
+//    function Student(name, age, sex, score){
+//        //借用person的构造函数
+//        Person.call(this, name, age, sex);
+//
+//        //学生特有的属性
+//        this.score = score;
+//    }
+//    var s = new Student('zs', 18 , '男', 100);
+//    console.log(s);
+
+//    // 父类型
+//    function Animal(color, size, age){
+//        this.color = color;
+//        this.size = size;
+//        this.age = age;
+//    }
+//    Animal.prototype.sayHi = function() {
+//      console.log('Hello,I can speak');
+//    };
+//    // 子类型
+//    function Cat(color, size, age, type){
+//        //借用Animal的构造函数，并调用  关键字用 call
+//        Animal.call(this, color, size, age);             //this的位置一定要在前面么
+//        this.type = type;
+//    }
+//    var cat = new Cat('black', 300, 3, '猫');
+//    console.log(cat);
+
+
+//
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.sayHi = function() {
+        console.log(123);
+    };
+//     extend 对象拷贝
+     function extend(parent, child){
+         for(var key in parent){
+             if(!child[key]) {
+                 child[key] = parent[key];
+             }
+         }
+     }
+//    子类型
+    function Student(name, age, sex, score){
+        //把Person当成普通函数来调用
+        //如果Person当成普通函数调用的话,它内部的 this指向window
+        // 通过call改变Person内部的this的指向，指向学生对象
+        Person.call(this, name, age, sex);
+        this.score = score;
+    }
+     // 设置原型 为 父类型的原型
+//    Student.prototype = Person.prototype;                 // 这样新创建的对象会共有属性！！
+//    Student.prototype.constructor = Student;
+
+    //通过对象拷贝，把Person中的属性拷贝给Student
+       extend(Person.prototype, Student.prototype);
+
+    // 给学生增加一个特有的方法
+    Student.prototype.exam = function(){
+        console.log('考试考试');
+    };
+//    创建Teacher
+    function Teacher(name, age, sex, salary){
+        Person.call( this.salary, name, age, sex);
+        this.salary = salary;
+    };
+//    Teacher.prototype = Person.prototype;
+//    Teacher.prototype.constructor = Teacher;  // new 一个，或者复制一个
+      extend(Person.prototype,Teacher.prototype);
+    var s  = new Student('sd',18,'男',10);
+    var t = new Teacher('tea', 20, '女', 100);
+    console.dir(s);
+    console.dir(s.exam());
+    console.dir(t);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // apply  调用函数，改变函数中的this
+    // apply和call的不同，apply第二个参数是数组
+    function fn(a, b) {
+      console.log(a + b);
+      console.log(this);
+    }
+
+    var obj = {
+      name: 'zs'
+    };
+
+    fn.apply(obj, [4, 5]);
+
+
+    // apply 给我们带来的好处
+    // 把数组中的每一项，传递给函数的参数
+    // console.log(1, 3, 6, 8, 9);
+    
+    // console.log(Math.max(5, 1, 9, 2, 1, 10));
+
+
+    // 求数组的最大值
+    var arr = [1, 10, 2, 6];
+    console.log(arr);
+    // 把数组中的每一项展开，传递给Math.max方法，求最大值
+    console.log(Math.max.apply(Math, arr));
+
+
+    console.log.apply(console, arr);
+  </script>
+</body>
+</html>

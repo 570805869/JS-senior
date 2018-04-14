@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function fn() {
+    //   console.log(this);
+    // }
+
+    // // fn();// 此时输出的this是window
+    // var obj = {
+    //   name: 'zs'
+    // }
+
+    // // bind的一个参数可以改变 fn中的this
+    // // bind会返回一个新的函数
+    // var fn1 = fn.bind(obj);
+    // fn1();
+
+
+    // setInterval(function () {
+    //   // setInterval的函数中this指向window
+    //   console.log(this);
+    // }, 1000);
+
+    // 改变定时器 函数中this的指向
+    var obj = {
+      name: 'zs'
+    };
+    setInterval(function () {
+      // 让this指向obj
+      console.log(this);
+    }.bind(obj), 1000);
+
+    
+  </script>
+</body>
+</html>

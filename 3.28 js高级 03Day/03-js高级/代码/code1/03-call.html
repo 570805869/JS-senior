@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function fn() {
+    //   console.log('fn');
+    // }
+    // // call可以调用函数
+    // fn.call();
+
+
+    // function fn(a, b) {
+    //   console.log(a + b);
+    //   console.log('fn');
+    // }
+    // // call可以调用函数
+    // fn.call(null, 1, 2);
+
+
+    // call的第一个参数，是改变函数内部this的指向
+    // call可以调用函数
+    var obj = {
+      name: 'zs'
+    }
+    function fn() {
+      console.log(this);
+    }
+    fn.call(obj);
+  </script>
+</body>
+</html>
